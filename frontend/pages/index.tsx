@@ -1,135 +1,130 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-50 overflow-hidden">
+    <main>
       {/* HERO */}
-      <section className="max-w-7xl mx-auto px-6 py-24 grid gap-12 md:grid-cols-2 items-center">
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Animated background shape */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900">
-            Premium Packaging
-            <span className="text-blue-600"> That Elevates Brands</span>
-          </h1>
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 0.15 }}
+          transition={{ duration: 1.2 }}
+          className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-brand blur-3xl"
+        />
 
-          <p className="mt-6 text-lg text-gray-600">
-            High-quality, sustainable, and custom packaging solutions designed
-            to protect your products and strengthen your brand.
-          </p>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+          {/* TEXT */}
+          <motion.div
+            initial={{ x: -60, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1 className="text-5xl md:text-7xl font-extrabold leading-tight">
+              Packaging
+              <br />
+              <span className="text-brand">That Performs</span>
+            </h1>
 
-          <div className="mt-10 flex gap-4">
-            <Link
-              href="/products"
-              className="px-6 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
+            <p className="mt-6 text-lg text-gray-300 max-w-xl">
+              We engineer premium packaging solutions for brands that demand
+              durability, precision, and visual impact.
+            </p>
+
+            <div className="mt-10 flex gap-6">
+              <Link
+                href="/products"
+                className="px-8 py-4 bg-brand text-white font-semibold rounded-lg hover:scale-105 transition"
+              >
+                Explore Products
+              </Link>
+
+              <Link
+                href="/contact"
+                className="px-8 py-4 border border-gray-500 rounded-lg hover:bg-white hover:text-dark transition"
+              >
+                Get in Touch
+              </Link>
+            </div>
+          </motion.div>
+
+          {/* IMAGE */}
+          <motion.div
+            initial={{ x: 60, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.9 }}
+            className="relative"
+          >
+            <motion.div
+              whileHover={{ rotate: -2, scale: 1.03 }}
+              transition={{ type: "spring", stiffness: 200 }}
+              className="rounded-2xl overflow-hidden shadow-2xl"
             >
-              View Products
-            </Link>
-
-            <Link
-              href="/contact"
-              className="px-6 py-3 rounded-lg border border-gray-300 text-gray-700 font-semibold hover:bg-gray-100 transition"
-            >
-              Contact Us
-            </Link>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7 }}
-          className="relative"
-        >
-          <Image
-            src="/images/hero-packaging.png"
-            alt="Packaging products"
-            width={600}
-            height={500}
-            className="rounded-xl shadow-lg"
-            priority
-          />
-        </motion.div>
-      </section>
-
-      {/* FEATURES */}
-      <section className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid gap-10 md:grid-cols-3">
-            <Feature
-              img="/images/quality.png"
-              title="High Quality"
-              description="Durable materials that protect your products end-to-end."
-            />
-            <Feature
-              img="/images/custom.png"
-              title="Custom Design"
-              description="Packaging tailored to your brand identity."
-            />
-            <Feature
-              img="/images/delivery.png"
-              title="Fast Delivery"
-              description="Reliable production timelines you can trust."
-            />
-          </div>
+              <Image
+                src="/images/hero-packaging.png"
+                alt="Packaging"
+                width={600}
+                height={500}
+                className="object-cover"
+              />
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
-      {/* CTA */}
-      <motion.section
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="py-20 text-center bg-gray-100"
-      >
-        <h2 className="text-3xl font-bold text-gray-900">
-          Ready to upgrade your packaging?
-        </h2>
-        <p className="mt-4 text-gray-600">
-          Explore our solutions and find the perfect fit.
-        </p>
+      {/* STATEMENT STRIP */}
+      <section className="py-20 bg-light text-dark">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12 text-center">
+          {[
+            ["10+ Years", "Manufacturing expertise"],
+            ["500+ Clients", "Across industries"],
+            ["Custom Built", "Tailored solutions"],
+          ].map(([title, desc]) => (
+            <motion.div
+              key={title}
+              whileInView={{ y: 0, opacity: 1 }}
+              initial={{ y: 40, opacity: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h3 className="text-4xl font-bold">{title}</h3>
+              <p className="mt-2 text-gray-600">{desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
 
-        <Link
-          href="/products"
-          className="inline-block mt-8 px-8 py-4 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
-        >
-          Browse Products
-        </Link>
-      </motion.section>
+      {/* PRODUCTS PREVIEW */}
+      <section className="py-28 bg-dark">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.h2
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold mb-16"
+          >
+            Engineered Solutions
+          </motion.h2>
+
+          <div className="grid md:grid-cols-3 gap-10">
+            {["Boxes", "Industrial Wrap", "Custom Molds"].map((item) => (
+              <motion.div
+                key={item}
+                whileHover={{ y: -12 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="p-8 border border-gray-700 rounded-2xl bg-[#020617]"
+              >
+                <h3 className="text-2xl font-semibold">{item}</h3>
+                <p className="mt-4 text-gray-400">
+                  Precision-built packaging designed for protection and scale.
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
-  );
-}
-
-function Feature({
-  img,
-  title,
-  description,
-}: {
-  img: string;
-  title: string;
-  description: string;
-}) {
-  return (
-    <motion.div
-      whileHover={{ y: -6 }}
-      transition={{ type: "spring", stiffness: 300 }}
-      className="p-8 border rounded-2xl shadow-sm hover:shadow-lg transition bg-white text-center"
-    >
-      <Image
-        src={img}
-        alt={title}
-        width={80}
-        height={80}
-        className="mx-auto mb-6"
-      />
-
-      <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
-      <p className="mt-3 text-gray-600">{description}</p>
-    </motion.div>
   );
 }
