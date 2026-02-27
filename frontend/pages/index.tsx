@@ -102,24 +102,72 @@ export default function Home() {
         {/* ================= LEADERSHIP ================= */}
         <section className="py-28 bg-dark">
           <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-4xl font-bold mb-16 text-center">Leadership</h2>
+            <h2 className="text-4xl font-bold mb-16 text-center">
+              Leadership
+            </h2>
 
-            <div className="grid md:grid-cols-2 gap-12">
-              <div className="bg-[#020617] p-8 rounded-2xl border border-gray-700">
-                <h3 className="text-2xl font-semibold">Tran Thien Y</h3>
-                <p className="text-brand mt-2">Founder & CEO</p>
-                <p className="mt-4 text-gray-400">
-                  Leads strategic direction, client partnerships, and innovation.
-                </p>
-              </div>
+            <div className="grid md:grid-cols-2 gap-16">
 
-              <div className="bg-[#020617] p-8 rounded-2xl border border-gray-700">
-                <h3 className="text-2xl font-semibold">Nguyen Minh Anh</h3>
-                <p className="text-brand mt-2">Operations Director</p>
-                <p className="mt-4 text-gray-400">
-                  Oversees production systems, quality control, and logistics.
-                </p>
-              </div>
+              {/* CEO */}
+              <motion.div
+                initial={{ y: 60, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                whileHover={{ y: -8 }}
+                className="bg-[#020617] border border-gray-700 rounded-2xl overflow-hidden shadow-xl"
+              >
+                <div className="relative h-80 w-full overflow-hidden">
+                  <Image
+                    src="/images/ceo.png"
+                    alt="Tran Thien Y - CEO"
+                    fill
+                    className="object-cover transition duration-700 hover:scale-105"
+                  />
+                </div>
+
+                <div className="p-8">
+                  <h3 className="text-2xl font-semibold">Tran Thien Y</h3>
+                  <p className="text-brand mt-2">Founder & CEO</p>
+
+                  <p className="mt-4 text-gray-400 leading-relaxed">
+                    Leads strategic direction, client partnerships, and innovation.
+                    With over 10 years in industrial packaging, he focuses on
+                    sustainable growth and production excellence.
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Operations Director */}
+              <motion.div
+                initial={{ y: 60, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                whileHover={{ y: -8 }}
+                className="bg-[#020617] border border-gray-700 rounded-2xl overflow-hidden shadow-xl"
+              >
+                <div className="relative h-80 w-full overflow-hidden">
+                  <Image
+                    src="/images/operations.png"
+                    alt="Nguyen Minh Anh - Operations Director"
+                    fill
+                    className="object-cover transition duration-700 hover:scale-105"
+                  />
+                </div>
+
+                <div className="p-8">
+                  <h3 className="text-2xl font-semibold">Nguyen Minh Anh</h3>
+                  <p className="text-brand mt-2">Operations Director</p>
+
+                  <p className="mt-4 text-gray-400 leading-relaxed">
+                    Oversees production systems, logistics, and quality control.
+                    Ensures every packaging unit meets strict durability
+                    and performance standards.
+                  </p>
+                </div>
+              </motion.div>
+
             </div>
           </div>
         </section>
