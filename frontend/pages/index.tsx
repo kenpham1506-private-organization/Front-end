@@ -15,7 +15,6 @@ export default function Home() {
 
         {/* ================= HERO ================= */}
         <section className="relative min-h-screen flex items-center">
-          {/* Animated background blob */}
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 0.15 }}
@@ -24,8 +23,7 @@ export default function Home() {
           />
 
           <div className="relative z-10 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-            
-            {/* TEXT SIDE */}
+
             <motion.div
               initial={{ x: -60, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
@@ -42,7 +40,6 @@ export default function Home() {
                 precision, and powerful brand impact.
               </p>
 
-              {/* Magnetic CTA */}
               <motion.div
                 whileHover={{ scale: 1.08 }}
                 whileTap={{ scale: 0.95 }}
@@ -63,7 +60,6 @@ export default function Home() {
               </motion.div>
             </motion.div>
 
-            {/* IMAGE SIDE */}
             <motion.div
               initial={{ x: 60, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
@@ -90,76 +86,132 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ================= MASSIVE TYPO SECTION ================= */}
-        <section className="py-40 bg-dark overflow-hidden">
-          <motion.h2
-            initial={{ x: -200, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 0.05 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
-            className="text-[10rem] md:text-[14rem] font-extrabold whitespace-nowrap text-center"
-          >
-            ENGINEERED FOR IMPACT
-          </motion.h2>
-        </section>
-
-        {/* ================= LIGHT CONTRAST STRIP ================= */}
-        <section className="py-32 bg-light text-dark">
-          <div className="max-w-7xl mx-auto px-6">
-            <motion.h2
-              initial={{ y: 40, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-5xl font-bold"
-            >
-              Built for Performance.
-            </motion.h2>
-
-            <motion.p
-              initial={{ y: 40, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="mt-6 text-xl text-gray-700 max-w-2xl"
-            >
-              Every material, structure, and dimension engineered for real-world
-              durability and scalable production.
-            </motion.p>
+        {/* ================= ABOUT ================= */}
+        <section className="py-28 bg-light text-dark">
+          <div className="max-w-6xl mx-auto px-6 text-center">
+            <h2 className="text-4xl font-bold mb-8">About Our Company</h2>
+            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+              Established in 2013, we specialize in industrial and custom packaging
+              solutions across Vietnam and international markets. Our production
+              system focuses on precision engineering, durability testing, and
+              scalable manufacturing processes.
+            </p>
           </div>
         </section>
 
-        {/* ================= PRODUCTS PREVIEW ================= */}
+        {/* ================= LEADERSHIP ================= */}
         <section className="py-28 bg-dark">
-          <div className="max-w-7xl mx-auto px-6">
-            <motion.h2
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="text-4xl font-bold mb-16"
-            >
-              Engineered Solutions
-            </motion.h2>
+          <div className="max-w-6xl mx-auto px-6">
+            <h2 className="text-4xl font-bold mb-16 text-center">Leadership</h2>
 
-            <div className="grid md:grid-cols-3 gap-10">
-              {["Boxes", "Industrial Wrap", "Custom Molds"].map((item) => (
-                <motion.div
-                  key={item}
-                  whileHover={{ y: -12 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  className="p-8 border border-gray-700 rounded-2xl bg-[#020617]"
-                >
-                  <h3 className="text-2xl font-semibold">{item}</h3>
-                  <p className="mt-4 text-gray-400">
-                    Precision-built packaging designed for protection and scale.
-                  </p>
-                </motion.div>
-              ))}
+            <div className="grid md:grid-cols-2 gap-12">
+              <div className="bg-[#020617] p-8 rounded-2xl border border-gray-700">
+                <h3 className="text-2xl font-semibold">Tran Thien Y</h3>
+                <p className="text-brand mt-2">Founder & CEO</p>
+                <p className="mt-4 text-gray-400">
+                  Leads strategic direction, client partnerships, and innovation.
+                </p>
+              </div>
+
+              <div className="bg-[#020617] p-8 rounded-2xl border border-gray-700">
+                <h3 className="text-2xl font-semibold">Nguyen Minh Anh</h3>
+                <p className="text-brand mt-2">Operations Director</p>
+                <p className="mt-4 text-gray-400">
+                  Oversees production systems, quality control, and logistics.
+                </p>
+              </div>
             </div>
           </div>
         </section>
 
+        {/* ================= DELIVERY ================= */}
+        <section className="py-28 bg-light text-dark">
+          <div className="max-w-6xl mx-auto px-6 text-center">
+            <h2 className="text-4xl font-bold mb-16">Delivery & Logistics</h2>
+
+            <div className="grid md:grid-cols-3 gap-10">
+              <div>
+                <h3 className="text-2xl font-bold">Delivery Range</h3>
+                <p className="mt-4 text-gray-600">
+                  Nationwide delivery across Vietnam. International shipping available.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-bold">Production Time</h3>
+                <p className="mt-4 text-gray-600">
+                  Standard orders: 3–7 working days.  
+                  Custom bulk orders: 7–14 working days.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-bold">Shipping Partners</h3>
+                <p className="mt-4 text-gray-600">
+                  Trusted logistics partners ensuring safe and timely delivery.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ================= CONTACT ================= */}
+        <section className="py-28 bg-dark">
+          <div className="max-w-6xl mx-auto px-6">
+            <h2 className="text-4xl font-bold mb-16 text-center">Contact Us</h2>
+
+            <div className="grid md:grid-cols-2 gap-12">
+              <div className="space-y-4 text-gray-300">
+                <p><strong>Email:</strong> contact@yourcompany.com</p>
+                <p><strong>Phone:</strong> +84 912 345 678</p>
+                <p><strong>Zalo:</strong> +84 912 345 678</p>
+                <p><strong>WhatsApp:</strong> +84 912 345 678</p>
+                <p><strong>Address:</strong> Ho Chi Minh City, Vietnam</p>
+              </div>
+
+              <div className="flex flex-col gap-6">
+                <a
+                  href="mailto:contact@yourcompany.com"
+                  className="px-6 py-4 bg-brand rounded-lg text-white font-semibold text-center hover:scale-105 transition"
+                >
+                  Send Email
+                </a>
+
+                <a
+                  href="https://wa.me/84912345678"
+                  target="_blank"
+                  className="px-6 py-4 border border-gray-600 rounded-lg text-center hover:bg-white hover:text-dark transition"
+                >
+                  WhatsApp Chat
+                </a>
+
+                <a
+                  href="https://zalo.me/84912345678"
+                  target="_blank"
+                  className="px-6 py-4 border border-gray-600 rounded-lg text-center hover:bg-white hover:text-dark transition"
+                >
+                  Zalo Chat
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ================= FOOTER ================= */}
+        <footer className="bg-black py-10 text-center text-gray-500 text-sm">
+          © {new Date().getFullYear()} Packaging Company. All rights reserved.
+        </footer>
+
       </main>
+
+      {/* Floating WhatsApp Button */}
+      <a
+        href="https://wa.me/84912345678"
+        target="_blank"
+        className="fixed bottom-6 right-6 bg-green-500 text-white px-6 py-4 rounded-full shadow-lg hover:scale-110 transition z-50"
+      >
+        WhatsApp
+      </a>
     </>
   );
 }
