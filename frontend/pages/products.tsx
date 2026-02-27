@@ -5,25 +5,25 @@ import { motion } from "framer-motion";
 const products = [
   {
     name: "Industrial Carton Boxes",
-    image: "/images/product-box.jpg",
+    image: "/images/product-box.png",
     description:
       "Heavy-duty multi-layer carton boxes designed for industrial and export packaging.",
   },
   {
     name: "Protective Wrapping",
-    image: "/images/product-wrap.jpg",
+    image: "/images/product-wrap.png",
     description:
       "Shock-absorbing and moisture-resistant wrapping solutions for fragile goods.",
   },
   {
     name: "Custom Molded Packaging",
-    image: "/images/product-mold.jpg",
+    image: "/images/product-mold.png",
     description:
       "Precision-engineered molded packaging tailored to your product dimensions.",
   },
   {
     name: "Eco Packaging",
-    image: "/images/product-eco.jpg",
+    image: "/images/product-eco.png",
     description:
       "Sustainable and biodegradable packaging solutions for modern brands.",
   },
