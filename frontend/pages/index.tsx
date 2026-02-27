@@ -157,7 +157,7 @@ export default function Home() {
                 </div>
 
                 <div className="p-8">
-                  <h3 className="text-2xl font-semibold">Nguyen Minh Anh</h3>
+                  <h3 className="text-2xl font-semibold">Tran Thien Italy</h3>
                   <p className="text-brand mt-2">Operations Director</p>
 
                   <p className="mt-4 text-gray-400 leading-relaxed">
