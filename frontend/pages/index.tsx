@@ -40,18 +40,33 @@ export default function Home() {
                 precision, and powerful brand impact.
               </p>
 
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-block mt-10"
-              >
-                <Link
-                  href="/products"
-                  className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-colors"
+              <div className="flex flex-wrap gap-4 mt-10">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-block"
                 >
-                  View Our Products
-                </Link>
-              </motion.div>
+                  <Link
+                    href="/products"
+                    className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-colors"
+                  >
+                    View Our Products
+                  </Link>
+                </motion.div>
+
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-block"
+                >
+                  <Link
+                    href="/customize"
+                    className="px-8 py-3 bg-white text-blue-600 font-semibold rounded-lg shadow-md border border-blue-600 hover:bg-blue-50 transition-colors"
+                  >
+                    Design Custom Package
+                  </Link>
+                </motion.div>
+              </div>
             </motion.div>
 
             <motion.div
