@@ -118,12 +118,13 @@ export default function CustomizePage() {
       ctx.fill();
       ctx.stroke();
 
-      // Draw product image on front if available
+      // Draw product image on front if available (fixed size, not scaled)
       if (productImage) {
-        const img = new (window.Image as any)();
+        const img = new (window as any).Image();
         img.onload = () => {
-          const imgWidth = frontW * 0.6;
-          const imgHeight = frontH * 0.6;
+          const imgWidth = 80; // Fixed size
+          const imgHeight = 80;
+          ctx.globalCompositeOperation = "multiply"; // Blend with color
           ctx.drawImage(
             img,
             frontX + (frontW - imgWidth) / 2,
@@ -131,6 +132,7 @@ export default function CustomizePage() {
             imgWidth,
             imgHeight
           );
+          ctx.globalCompositeOperation = "source-over";
         };
         img.src = productImage;
       }
@@ -168,12 +170,13 @@ export default function CustomizePage() {
       ctx.fill();
       ctx.stroke();
 
-      // Draw product image in the center
+      // Draw product image in the center (fixed size, not scaled)
       if (productImage) {
-        const img = new (window.Image as any)();
+        const img = new (window as any).Image();
         img.onload = () => {
-          const imgWidth = radius * 1.5;
-          const imgHeight = cylinderHeight * 0.6;
+          const imgWidth = 80; // Fixed size
+          const imgHeight = 80;
+          ctx.globalCompositeOperation = "multiply"; // Blend with color
           ctx.drawImage(
             img,
             centerX - imgWidth / 2,
@@ -181,6 +184,7 @@ export default function CustomizePage() {
             imgWidth,
             imgHeight
           );
+          ctx.globalCompositeOperation = "source-over";
         };
         img.src = productImage;
       }
@@ -212,12 +216,13 @@ export default function CustomizePage() {
       ctx.fill();
       ctx.stroke();
 
-      // Draw product in center
+      // Draw product in center (fixed size, not scaled)
       if (productImage) {
-        const img = new (window.Image as any)();
+        const img = new (window as any).Image();
         img.onload = () => {
-          const imgWidth = wrapperW * 0.6;
-          const imgHeight = wrapperH * 0.7;
+          const imgWidth = 80; // Fixed size
+          const imgHeight = 80;
+          ctx.globalCompositeOperation = "multiply"; // Blend with color
           ctx.drawImage(
             img,
             centerX - imgWidth / 2,
@@ -225,6 +230,7 @@ export default function CustomizePage() {
             imgWidth,
             imgHeight
           );
+          ctx.globalCompositeOperation = "source-over";
         };
         img.src = productImage;
       }
