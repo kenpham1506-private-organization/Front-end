@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import CursorGlow from "../components/CursorGlow";
+import Header from "../components/Header";
 
 export default function Home() {
   const { scrollY } = useScroll();
@@ -10,6 +11,8 @@ export default function Home() {
   return (
     <>
       <CursorGlow />
+
+      <Header />
 
       <main className="bg-white text-gray-900 overflow-hidden">
 
