@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -118,21 +118,22 @@ export default function CustomizePage() {
       ctx.fill();
       ctx.stroke();
 
-      // Draw product image on front if available (fixed size, not scaled)
+      // Draw product image on front if available (fixed size, inside box)
       if (productImage) {
         const img = new (window as any).Image();
         img.onload = () => {
-          const imgWidth = 80; // Fixed size
-          const imgHeight = 80;
-          ctx.globalCompositeOperation = "multiply"; // Blend with color
+          const imgWidth = 60; // Fixed size
+          const imgHeight = 60;
+          // Draw with opacity so the box color shows through and blends
+          ctx.globalAlpha = 0.85;
           ctx.drawImage(
             img,
             frontX + (frontW - imgWidth) / 2,
-            frontY + (frontH - imgHeight) / 2,
+            frontY + (frontH - imgHeight) / 2 + 10,
             imgWidth,
             imgHeight
           );
-          ctx.globalCompositeOperation = "source-over";
+          ctx.globalAlpha = 1;
         };
         img.src = productImage;
       }
@@ -170,13 +171,14 @@ export default function CustomizePage() {
       ctx.fill();
       ctx.stroke();
 
-      // Draw product image in the center (fixed size, not scaled)
+      // Draw product image in the center (fixed size, inside cylinder)
       if (productImage) {
         const img = new (window as any).Image();
         img.onload = () => {
-          const imgWidth = 80; // Fixed size
-          const imgHeight = 80;
-          ctx.globalCompositeOperation = "multiply"; // Blend with color
+          const imgWidth = 60; // Fixed size
+          const imgHeight = 60;
+          // Draw with opacity so the cylinder color shows through and blends
+          ctx.globalAlpha = 0.85;
           ctx.drawImage(
             img,
             centerX - imgWidth / 2,
@@ -184,7 +186,7 @@ export default function CustomizePage() {
             imgWidth,
             imgHeight
           );
-          ctx.globalCompositeOperation = "source-over";
+          ctx.globalAlpha = 1;
         };
         img.src = productImage;
       }
@@ -216,13 +218,14 @@ export default function CustomizePage() {
       ctx.fill();
       ctx.stroke();
 
-      // Draw product in center (fixed size, not scaled)
+      // Draw product in center (fixed size, inside wrapper)
       if (productImage) {
         const img = new (window as any).Image();
         img.onload = () => {
-          const imgWidth = 80; // Fixed size
-          const imgHeight = 80;
-          ctx.globalCompositeOperation = "multiply"; // Blend with color
+          const imgWidth = 60; // Fixed size
+          const imgHeight = 60;
+          // Draw with opacity so the wrapper color shows through and blends
+          ctx.globalAlpha = 0.85;
           ctx.drawImage(
             img,
             centerX - imgWidth / 2,
@@ -230,7 +233,7 @@ export default function CustomizePage() {
             imgWidth,
             imgHeight
           );
-          ctx.globalCompositeOperation = "source-over";
+          ctx.globalAlpha = 1;
         };
         img.src = productImage;
       }
@@ -261,6 +264,11 @@ export default function CustomizePage() {
       ? [parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16)]
       : [255, 255, 255];
   };
+
+  // Redraw canvas when state changes
+  useEffect(() => {
+    drawBoxPreview();
+  }, [boxLength, boxWidth, boxHeight, packagingType, boxColor, cylinderColor, wrapperColor, boxDesign, productImage]);
 
   return (
     <>
@@ -484,17 +492,9 @@ export default function CustomizePage() {
                       ref={canvasRef}
                       width={600}
                       height={500}
-                      onLoad={drawBoxPreview}
                       className="max-w-full max-h-full"
                     />
                   </div>
-
-                  {/* Draw on canvas update */}
-                  {typeof window !== "undefined" &&
-                    (() => {
-                      drawBoxPreview();
-                      return null;
-                    })()}
 
                   <div className="mt-8 grid grid-cols-2 gap-4 p-6 bg-gray-50 rounded-xl">
                     <div>
