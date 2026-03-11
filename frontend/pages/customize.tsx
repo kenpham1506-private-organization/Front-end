@@ -422,9 +422,9 @@ export default function CustomizePage() {
                         </label>
                         <input
                           type="range"
-                          min="1"
-                          max="1000"
-                          step="5"
+                          min="0.1"
+                          max="10"
+                          step="0.1"
                           value={productScale}
                           onChange={(e) => setProductScale(Number(e.target.value))}
                           className="w-full"
