@@ -120,7 +120,7 @@ export default function CustomizePage() {
 
       // Draw product image on front if available
       if (productImage) {
-        const img = new Image();
+        const img = new (window.Image as any)();
         img.onload = () => {
           const imgWidth = frontW * 0.6;
           const imgHeight = frontH * 0.6;
@@ -137,7 +137,7 @@ export default function CustomizePage() {
 
       // Draw box design if available
       if (boxDesign) {
-        const img = new Image();
+        const img = new (window.Image as any)();
         img.onload = () => {
           ctx.globalAlpha = 0.3;
           ctx.drawImage(img, frontX, frontY, frontW, frontH);
@@ -170,7 +170,7 @@ export default function CustomizePage() {
 
       // Draw product image in the center
       if (productImage) {
-        const img = new Image();
+        const img = new (window.Image as any)();
         img.onload = () => {
           const imgWidth = radius * 1.5;
           const imgHeight = cylinderHeight * 0.6;
@@ -214,7 +214,7 @@ export default function CustomizePage() {
 
       // Draw product in center
       if (productImage) {
-        const img = new Image();
+        const img = new (window.Image as any)();
         img.onload = () => {
           const imgWidth = wrapperW * 0.6;
           const imgHeight = wrapperH * 0.7;
