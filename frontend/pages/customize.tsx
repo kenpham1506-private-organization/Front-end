@@ -424,7 +424,7 @@ export default function CustomizePage() {
                           type="range"
                           min="1"
                           max="1000"
-                          step="10"
+                          step="5"
                           value={productScale}
                           onChange={(e) => setProductScale(Number(e.target.value))}
                           className="w-full"
