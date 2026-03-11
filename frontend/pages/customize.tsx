@@ -19,6 +19,9 @@ export default function CustomizePage() {
   // Packaging type
   const [packagingType, setPackagingType] = useState<PackagingType>("box");
 
+  // Product scale
+  const [productScale, setProductScale] = useState(1);
+
   // Images
   const [boxDesign, setBoxDesign] = useState<string | null>(null);
   const [productImage, setProductImage] = useState<string | null>(null);
@@ -122,8 +125,8 @@ export default function CustomizePage() {
       if (productImage) {
         const img = new (window as any).Image();
         img.onload = () => {
-          const imgWidth = 60; // Fixed size
-          const imgHeight = 60;
+          const imgWidth = 60 * productScale; // Scalable size
+          const imgHeight = 60 * productScale;
           // Draw with opacity so the box color shows through and blends
           ctx.globalAlpha = 0.85;
           ctx.drawImage(
@@ -175,8 +178,8 @@ export default function CustomizePage() {
       if (productImage) {
         const img = new (window as any).Image();
         img.onload = () => {
-          const imgWidth = 60; // Fixed size
-          const imgHeight = 60;
+          const imgWidth = 60 * productScale; // Scalable size
+          const imgHeight = 60 * productScale;
           // Draw with opacity so the cylinder color shows through and blends
           ctx.globalAlpha = 0.85;
           ctx.drawImage(
@@ -222,8 +225,8 @@ export default function CustomizePage() {
       if (productImage) {
         const img = new (window as any).Image();
         img.onload = () => {
-          const imgWidth = 60; // Fixed size
-          const imgHeight = 60;
+          const imgWidth = 60 * productScale; // Scalable size
+          const imgHeight = 60 * productScale;
           // Draw with opacity so the wrapper color shows through and blends
           ctx.globalAlpha = 0.85;
           ctx.drawImage(
@@ -268,7 +271,7 @@ export default function CustomizePage() {
   // Redraw canvas when state changes
   useEffect(() => {
     drawBoxPreview();
-  }, [boxLength, boxWidth, boxHeight, packagingType, boxColor, cylinderColor, wrapperColor, boxDesign, productImage]);
+  }, [boxLength, boxWidth, boxHeight, packagingType, boxColor, cylinderColor, wrapperColor, boxDesign, productImage, productScale]);
 
   return (
     <>
@@ -405,6 +408,28 @@ export default function CustomizePage() {
                       />
                       <div className="flex-1">
                         <p className="text-sm text-gray-600">Click to choose color</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Product Scale */}
+                  <div>
+                    <h3 className="text-lg font-bold mb-4 text-gray-900">Product Scale</h3>
+                    <div className="space-y-4">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Size: {Math.round(productScale * 100)}%
+                        </label>
+                        <input
+                          type="range"
+                          min="0.3"
+                          max="2"
+                          step="0.1"
+                          value={productScale}
+                          onChange={(e) => setProductScale(Number(e.target.value))}
+                          className="w-full"
+                        />
+                        <p className="text-xs text-gray-500 mt-2">Adjust how large the product appears</p>
                       </div>
                     </div>
                   </div>
